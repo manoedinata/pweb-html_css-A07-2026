@@ -251,6 +251,10 @@ body {
 
 /* responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding: 20px 0 70px;
+    }
+
     .hero-inner {
         grid-template-columns: 1fr;
         text-align: center;
@@ -361,6 +365,7 @@ body {
 }
 
 @keyframes hero-float {
+
     0%,
     100% {
         transform: translateY(0);

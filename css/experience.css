@@ -168,7 +168,7 @@ body {
 
 @media screen and (max-width: 768px) {
   .experience-section {
-    padding: 50px 5%;
+    padding: 88px 5% 50px;
   }
 
   .exp-card {
@@ -335,5 +335,23 @@ body {
       opacity: 1;
       transform: none;
     }
+  }
+}
+
+/* Bentuk dekoratif di layar sempit.
+   Blok ini harus berada SETELAH aturan dasar .decor-shape, bukan di media query yang
+   lebih awal: spesifisitasnya sama, jadi aturan yang ditulis belakangan yang menang.
+   Diperkecil dan dinaikkan ke area padding supaya tidak lewat di belakang teks judul.
+   Memudarkan saja tidak cukup: ujung ungu teks gradien di atas oranye hanya 2.62:1,
+   di bawah ambang 3:1 untuk teks besar. */
+@media screen and (max-width: 768px) {
+  .decor-shape {
+    width: 56px;
+    height: 28px;
+  }
+
+  .decor-exp-1 {
+    top: 10px;
+    left: 5%;
   }
 }
