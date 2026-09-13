@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2b43;
+    background-color: #e6f0ff;
+    line-height: 1.5;
+}
+
+.page {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0 80px;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 44px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    color: #6b4ce6;
+    margin: 0 0 6px 0;
+}
+
+.page-header p {
+    font-size: 15px;
+    color: #828297;
+    margin: 0;
+}
+
+.timeline {
+    position: relative;
+}
+
+/* garis*/
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    width: 4px;
+    background-color: #cb6ce6;
+}
+
+.achv-row {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.achv-row>.achv-photo,
+.achv-row>.achv-content {
+    flex: 1 1 0;
+}
+
+.achv-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.achv-photo {
+    width: 100%;
+    height: 200px;
+    background-color: #e1daff;
+    border: 1px dashed #828297;
+}
+
+.achv-photo img {
+    width: 100%;
+    height: 200px;
+}
+
+.achv-content {
+    background-color: #ffffff;
+    border: 1px solid #d9d9e3;
+    padding: 20px;
+}
+
+.achv-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.achv-badge {
+    background-color: #6b4ce6;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 5px 12px;
+}
+
+.achv-date {
+    color: #ff9b24;
+    font-size: 13px;
+}
+
+.achv-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+}
+
+.achv-content ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #828297;
+    font-size: 14px;
+}
+
+.achv-content li {
+    margin-bottom: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 20px;
+        margin-left: -2px;
+    }
+
+    .achv-row,
+    .achv-row.reverse {
+        flex-direction: column;
+        margin-left: 44px;
+    }
+
+    .achv-row>.achv-photo,
+    .achv-row>.achv-content {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 24px;
+    }
+}
