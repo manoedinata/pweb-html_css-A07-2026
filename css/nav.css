@@ -55,6 +55,7 @@
 .nav-link {
     font-size: 15px;
     color: #5f5f73;
+    transition: color 0.2s ease;
     text-decoration: none;
     /* Tinggi minimal 44px supaya nyaman ditekan dengan jari di layar sentuh */
     display: flex;
@@ -114,4 +115,55 @@
 :focus-visible {
     outline: 3px solid #6b4ce6;
     outline-offset: 2px;
+}
+
+/* ===== Gerak ===== */
+
+/* Transisi antar halaman, murni CSS. Browser yang belum mendukung
+   mengabaikan aturan ini dan halaman tetap berpindah seperti biasa. */
+@view-transition {
+    navigation: auto;
+}
+
+/* Navbar sama di tiap halaman, jadi diberi nama supaya ikut berpindah
+   dengan mulus dan tidak berkedip saat navigasi */
+.navbar {
+    view-transition-name: site-nav;
+}
+
+/* Isi halaman masuk dari bawah sebagai tanda halaman baru sudah dimuat */
+main {
+    animation: page-enter 0.4s ease both;
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Umpan balik saat ditekan. Penting di layar sentuh yang tidak punya hover. */
+.nav-link:active {
+    transform: scale(0.96);
+}
+
+/* Hormati setelan pengguna yang meminta gerak dikurangi */
+@media (prefers-reduced-motion: reduce) {
+    @view-transition {
+        navigation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
