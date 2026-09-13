@@ -375,3 +375,86 @@ body {
         transform: translateY(-8px);
     }
 }
+
+/* Tombol CTA membuka submenu. Memakai <details> bawaan HTML, bukan trik checkbox:
+   di sini tidak ada kebutuhan status awal berbeda per breakpoint, dan <details>
+   sudah bisa dioperasikan keyboard serta diumumkan sebagai disclosure tanpa JS. */
+.cv-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.cv-menu>summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    cursor: pointer;
+    /* Segitiga bawaan browser dimatikan, penandanya dibuat sendiri di ::after */
+    list-style: none;
+}
+
+.cv-menu>summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Panah melaporkan status buka/tutup, jadi bukan sekadar hiasan */
+.cv-menu>summary::after {
+    content: "\25be";
+    font-size: 12px;
+}
+
+.cv-menu[open]>summary::after {
+    content: "\25b4";
+}
+
+/* Panel diposisikan absolut terhadap .cv-menu, yaitu elemen <details> itu sendiri.
+   Blok penampungnya berada DI LUAR slot yang disembunyikan browser saat tertutup,
+   jadi panel lolos dari penyembunyian bawaan dan harus ditutup secara eksplisit. */
+.cv-menu:not([open]) .cv-menu-list {
+    display: none;
+}
+
+.cv-menu-list {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    z-index: 5;
+    min-width: 220px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background-color: #ffffff;
+    /* 3:1 terhadap panel putih maupun latar di belakangnya */
+    border: 1px solid #75758a;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(43, 43, 67, 0.16);
+}
+
+.cv-menu-list a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 10px;
+    color: #2b2b43;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cv-menu-list a:hover,
+.cv-menu-list a:focus-visible {
+    background-color: #ede8ff;
+    color: #523bb0;
+}
+
+@media (max-width: 768px) {
+
+    /* Tombol berada di tengah pada layar sempit, jadi panelnya ikut dipusatkan
+       supaya tidak menjorok keluar layar */
+    .cv-menu-list {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

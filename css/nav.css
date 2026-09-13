@@ -21,7 +21,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
     padding: 14px 0;
 }
 
@@ -43,6 +42,7 @@
 .brand-name {
     font-size: 18px;
     font-weight: bold;
+    font-style: italic;
     color: #2b2b43;
 }
 
