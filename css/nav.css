@@ -1,0 +1,107 @@
+/* Navbar dipakai bersama di semua halaman */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9d9e3;
+    /* Position sticky -> navbar tetap menempel di atas saat halaman di-scroll */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-inner {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #6b4ce6;
+    border: 3px solid #cb6ce6;
+    box-sizing: border-box;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b2b43;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav-link {
+    font-size: 15px;
+    color: #828297;
+    text-decoration: none;
+}
+
+/* Pseudo-class :hover -> warna link berubah saat kursor diarahkan */
+.nav-link:hover {
+    color: #6b4ce6;
+}
+
+.nav-link.active {
+    color: #6b4ce6;
+    font-weight: bold;
+}
+
+.nav-cta {
+    background-color: #ff9b24;
+    color: #ffffff;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+}
+
+.nav-cta:hover {
+    background-color: #6b4ce6;
+}
+
+/* Logo di dalam page-header dibuat lebih besar sebagai aksen judul */
+.page-header .logo-circle {
+    width: 46px;
+    height: 46px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .nav-cta {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+}
