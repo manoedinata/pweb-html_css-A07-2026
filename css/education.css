@@ -1,219 +1,197 @@
+:root {
+  --primary-orange: #ff9b24;
+  --primary-purple: #6b4ce6;
+  --text-dark: #2b2b43;
+  --text-gray: #828297;
+  --bg-light-blue: #e6f0ff;
+  --bg-card: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    color: #2b2b43;
-    background-color: #e6f0ff;
-    line-height: 1.5;
+  background-color: var(--bg-light-blue);
+  color: var(--text-dark);
 }
 
-.page {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 0 80px;
+.education-section {
+  padding: 80px 10%;
+  position: relative;
+  overflow: hidden;
 }
 
-.page-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 10px;
-    margin-bottom: 40px;
+.section-title,
+.edu-grid {
+  position: relative;
+  z-index: 1;
 }
 
-.page-header h1 {
-    font-size: 32px;
-    color: #6b4ce6;
-    margin: 0 0 6px 0;
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.page-header p {
-    font-size: 15px;
-    color: #828297;
-    margin: 0;
+.section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+
+  background: linear-gradient(
+    to right,
+    var(--primary-purple),
+    var(--primary-orange)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-h2.section-title {
-    font-size: 22px;
-    color: #2b2b43;
-    border-left: 5px solid #6b4ce6;
-    padding-left: 12px;
-    margin-bottom: 20px;
+.section-title p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
 }
 
-section {
-    margin-bottom: 50px;
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-/* ringkasan singkat di atas riwayat */
-.edu-summary {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
+.edu-card {
+  background-color: var(--bg-card);
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(43, 43, 67, 0.06);
+  border: none;
+  transition:
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.summary-box {
-    background-color: #ffffff;
-    border: 1px solid #d9d9e3;
-    padding: 16px;
-    text-align: center;
+.edu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(107, 76, 230, 0.12);
 }
 
-.summary-box:hover {
-    border-color: #6b4ce6;
+.edu-image {
+  width: 100%;
+  height: 200px;
 }
 
-.summary-num {
-    margin: 0;
-    font-size: 22px;
-    font-weight: bold;
-    color: #6b4ce6;
+.edu-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.summary-label {
-    margin: 0;
-    font-size: 13px;
-    color: #828297;
+.edu-content {
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: transparent;
 }
 
-/* satu baris riwayat: kolom tahun, kolom penanda, kolom isi */
-.edu-item {
-    display: grid;
-    grid-template-columns: 150px 30px 1fr;
-    gap: 16px;
+.edu-content h3 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  line-height: 1.4;
 }
 
-.edu-side {
-    text-align: right;
-    padding-top: 16px;
+.edu-content p {
+  color: #4a4a5e;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
 }
 
 .edu-year {
-    margin: 0;
-    font-size: 15px;
-    font-weight: bold;
-    color: #6b4ce6;
+  display: inline-block;
+
+  background-color: rgba(107, 76, 230, 0.1);
+  color: var(--primary-purple);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  align-self: flex-start;
+  margin-bottom: 18px;
+  border: 1px solid rgba(107, 76, 230, 0.2);
 }
 
-.edu-place {
-    margin: 0;
-    font-size: 12px;
-    color: #828297;
+.edu-desc-box {
+  background: linear-gradient(
+    to top,
+    rgba(255, 155, 36, 0.04),
+    rgba(107, 76, 230, 0.06)
+  );
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  margin-top: auto;
+  flex-grow: 1;
 }
 
-/* Position relative -> jadi acuan titik dan garis penghubung */
-.edu-marker {
-    position: relative;
+.edu-desc-box p {
+  color: #4a4a5e;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  margin-bottom: 0;
 }
 
-.edu-dot {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    margin-left: -8px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #cb6ce6;
-    border: 3px solid #e6f0ff;
-    box-sizing: border-box;
+@media screen and (max-width: 992px) {
+  .edu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.edu-bar {
-    position: absolute;
-    top: 36px;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
-    width: 2px;
-    background-color: #d9d9e3;
+@media screen and (max-width: 768px) {
+  .education-section {
+    padding: 50px 5%;
+  }
+
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Pseudo-class :last-child -> garis penghubung pada item terakhir dihilangkan */
-.edu-item:last-child .edu-bar {
-    display: none;
+.decor-shape {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  background-color: var(--primary-orange);
+  border-radius: 80px 80px 0 0;
 }
 
-.edu-body {
-    background-color: #ffffff;
-    border: 1px solid #d9d9e3;
-    padding: 18px;
-    margin-bottom: 24px;
+.decor-shape::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 80px 80px 0 0;
+  border: 2px solid var(--text-dark);
+  box-sizing: border-box;
 }
 
-.edu-body:hover {
-    border-color: #6b4ce6;
+.decor-1 {
+  top: 60px;
+  left: 8%;
+  transform: rotate(-30deg);
 }
 
-.edu-level {
-    display: inline-block;
-    background-color: #6b4ce6;
-    color: #ffffff;
-    font-size: 12px;
-    padding: 4px 12px;
-    margin-bottom: 10px;
-}
-
-.edu-school {
-    margin: 0 0 4px 0;
-    font-size: 18px;
-}
-
-.edu-major {
-    margin: 0 0 10px 0;
-    font-size: 14px;
-    color: #ff9b24;
-}
-
-.edu-desc {
-    margin: 0 0 10px 0;
-    font-size: 14px;
-    color: #828297;
-}
-
-.edu-body ul {
-    margin: 0;
-    padding-left: 18px;
-    font-size: 14px;
-    color: #828297;
-}
-
-.edu-body li {
-    margin-bottom: 6px;
-}
-
-/* responsive */
-@media (max-width: 768px) {
-    .edu-summary {
-        grid-template-columns: 1fr;
-    }
-
-    .edu-item {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .edu-side {
-        text-align: left;
-        padding-top: 0;
-        margin-bottom: 8px;
-    }
-
-    .edu-marker {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-header h1 {
-        font-size: 24px;
-    }
-
-    .edu-school {
-        font-size: 16px;
-    }
+.decor-2 {
+  bottom: 80px;
+  right: 5%;
+  transform: rotate(150deg);
+  opacity: 0.7;
 }
