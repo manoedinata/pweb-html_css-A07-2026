@@ -178,35 +178,58 @@ body {
     color: #5f5f73;
 }
 
-/* bentuk dekoratif kecil */
+/* Bentuk dekoratif kecil, mengorbit titik tengah foto hero.
+   --orbit-a = sudut awal, --orbit-r = jarak dari titik tengah.
+   Sudut awal juga dipakai sebagai posisi diam ketika animasi dimatikan. */
 .deco {
     position: absolute;
+    top: 215px;
+    left: 50%;
     background-color: #ff9b24;
+    transform: rotate(var(--orbit-a)) translateX(var(--orbit-r));
+    animation: deco-orbit linear infinite;
+}
+
+@keyframes deco-orbit {
+    from {
+        transform: rotate(var(--orbit-a)) translateX(var(--orbit-r));
+    }
+
+    to {
+        transform: rotate(calc(var(--orbit-a) + 360deg)) translateX(var(--orbit-r));
+    }
 }
 
 .deco-1 {
-    top: 20px;
-    right: 60px;
     width: 26px;
     height: 26px;
+    margin: -13px 0 0 -13px;
     border-radius: 50% 50% 50% 0;
+    --orbit-a: -48deg;
+    --orbit-r: 176px;
+    animation-duration: 24s;
 }
 
 .deco-2 {
-    top: 130px;
-    left: 40px;
     width: 18px;
     height: 18px;
+    margin: -9px 0 0 -9px;
     border-radius: 50%;
     background-color: #cb6ce6;
+    --orbit-a: 158deg;
+    --orbit-r: 168px;
+    /* Durasi tiap bentuk sengaja berbeda supaya tidak bergerak serempak */
+    animation-duration: 30s;
 }
 
 .deco-3 {
-    bottom: 30px;
-    right: 30px;
     width: 22px;
     height: 22px;
+    margin: -11px 0 0 -11px;
     border-radius: 0 50% 50% 50%;
+    --orbit-a: 41deg;
+    --orbit-r: 190px;
+    animation-duration: 36s;
 }
 
 /* responsive */
@@ -227,9 +250,23 @@ body {
     }
 
     /* Tinggi dipangkas: ruang ekstra dulu untuk float-card yang sudah dihapus */
+    /* Tinggi menyesuaikan orbit: harus memuat jari-jari orbit di bawah foto */
     .hero-visual {
         order: -1;
-        height: 360px;
+        height: 390px;
+    }
+
+    /* Orbit dikecilkan, tetapi tetap di luar cincin blob (jari-jari 150px) */
+    .deco-1 {
+        --orbit-r: 172px;
+    }
+
+    .deco-2 {
+        --orbit-r: 166px;
+    }
+
+    .deco-3 {
+        --orbit-r: 178px;
     }
 }
 
@@ -248,7 +285,24 @@ body {
     }
 
     .hero-visual {
-        height: 270px;
+        height: 295px;
+    }
+
+    /* Titik tengah foto turun ke 160px di breakpoint ini */
+    .deco {
+        top: 160px;
+    }
+
+    .deco-1 {
+        --orbit-r: 132px;
+    }
+
+    .deco-2 {
+        --orbit-r: 126px;
+    }
+
+    .deco-3 {
+        --orbit-r: 138px;
     }
 
     .blob {
@@ -273,10 +327,6 @@ body {
         top: 30px;
     }
 
-    .deco-1,
-    .deco-3 {
-        display: none;
-    }
 }
 
 /* Tombol terasa ditekan, satu-satunya umpan balik yang bekerja di layar sentuh */
