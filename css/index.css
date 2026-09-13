@@ -8,8 +8,25 @@ body {
 }
 
 .hero {
-    background: linear-gradient(180deg, #f7f4ff 0%, #ede8ff 100%);
+    /* Hujan ditumpuk di atas gradien hero, karena gradien ini menutup latar body.
+       Keyframes terpisah dipakai supaya hanya lapisan hujan yang bergeser turun;
+       satu nilai background-position-y akan ikut menggeser gradien vertikalnya. */
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%27160%27%3E%3Cg%20stroke%3D%27%23000%27%20stroke-opacity%3D%270.06%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%3E%3Cline%20x1%3D%2716%27%20y1%3D%270%27%20x2%3D%277.5%27%20y2%3D%2734%27%2F%3E%3Cline%20x1%3D%2736%27%20y1%3D%27118%27%20x2%3D%2728.5%27%20y2%3D%27148%27%2F%3E%3Cline%20x1%3D%2754%27%20y1%3D%2770%27%20x2%3D%2747%27%20y2%3D%2798%27%2F%3E%3Cline%20x1%3D%2773%27%20y1%3D%276%27%20x2%3D%2767.5%27%20y2%3D%2728%27%2F%3E%3Cline%20x1%3D%2792%27%20y1%3D%2728%27%20x2%3D%2782%27%20y2%3D%2768%27%2F%3E%3Cline%20x1%3D%27112%27%20y1%3D%27112%27%20x2%3D%27105.5%27%20y2%3D%27138%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+        linear-gradient(180deg, #f7f4ff 0%, #ede8ff 100%);
+    background-size: 120px 160px, auto;
+    background-repeat: repeat, no-repeat;
+    animation: page-enter 0.4s ease both, rain-fall-hero 7.5s linear infinite;
     padding: 70px 0 90px;
+}
+
+@keyframes rain-fall-hero {
+    from {
+        background-position: 0 0, 0 0;
+    }
+
+    to {
+        background-position: -120px 480px, 0 0;
+    }
 }
 
 .hero-inner {
@@ -38,7 +55,7 @@ body {
 
 .hero-desc {
     font-size: 15px;
-    color: #5f5f73;
+    color: #4a4a5e;
     margin: 0 0 28px 0;
     max-width: 420px;
 }
@@ -66,14 +83,14 @@ body {
 }
 
 .btn-link {
-    color: #6b4ce6;
+    color: #523bb0;
     transition: color 0.2s ease;
     font-size: 15px;
     text-decoration: underline;
 }
 
 .btn-link:hover {
-    color: #8e2fa6;
+    color: #82278f;
 }
 
 /* Position relative -> jadi acuan posisi blob, foto, dan kartu melayang */
@@ -154,7 +171,7 @@ body {
 .card-sub {
     margin: 0;
     font-size: 12px;
-    color: #5f5f73;
+    color: #4a4a5e;
 }
 
 .card-stat {
@@ -175,7 +192,7 @@ body {
 .stat-label {
     margin: 0;
     font-size: 11px;
-    color: #5f5f73;
+    color: #4a4a5e;
 }
 
 /* Bentuk dekoratif kecil, mengorbit titik tengah foto hero.

@@ -54,7 +54,7 @@
 
 .nav-link {
     font-size: 15px;
-    color: #5f5f73;
+    color: #4a4a5e;
     transition: color 0.2s ease;
     text-decoration: none;
     /* Tinggi minimal 44px supaya nyaman ditekan dengan jari di layar sentuh */
@@ -165,5 +165,29 @@ main {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* Hujan garis pada latar.
+   Garis hitam 14% alpha. Batasnya nyata: di atas 14% teks ungu besar turun di bawah
+   ambang 3:1, dan teks 15px di atas latar sudah digelapkan ke #4a4a5e supaya tetap
+   lolos AA saat garis lewat di bawahnya.
+   Arah jatuh miring dari kanan atas ke kiri bawah. Geseran satu ubin ke kiri dan
+   tiga ubin ke bawah memberi kemiringan 120/480 = 14 derajat, sama dengan kemiringan
+   garisnya, dan tetap mulus karena keduanya kelipatan penuh ukuran ubin. */
+body {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%27160%27%3E%3Cg%20stroke%3D%27%23000%27%20stroke-opacity%3D%270.06%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%3E%3Cline%20x1%3D%2716%27%20y1%3D%270%27%20x2%3D%277.5%27%20y2%3D%2734%27%2F%3E%3Cline%20x1%3D%2736%27%20y1%3D%27118%27%20x2%3D%2728.5%27%20y2%3D%27148%27%2F%3E%3Cline%20x1%3D%2754%27%20y1%3D%2770%27%20x2%3D%2747%27%20y2%3D%2798%27%2F%3E%3Cline%20x1%3D%2773%27%20y1%3D%276%27%20x2%3D%2767.5%27%20y2%3D%2728%27%2F%3E%3Cline%20x1%3D%2792%27%20y1%3D%2728%27%20x2%3D%2782%27%20y2%3D%2768%27%2F%3E%3Cline%20x1%3D%27112%27%20y1%3D%27112%27%20x2%3D%27105.5%27%20y2%3D%27138%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-size: 120px 160px;
+    background-repeat: repeat;
+    animation: rain-fall 7.5s linear infinite;
+}
+
+@keyframes rain-fall {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -120px 480px;
     }
 }

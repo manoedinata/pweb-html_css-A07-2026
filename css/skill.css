@@ -32,7 +32,7 @@ body {
 
 .page-header p {
     font-size: 15px;
-    color: #5f5f73;
+    color: #4a4a5e;
     margin: 0;
 }
 
@@ -83,7 +83,7 @@ section {
 .soft-list .desc {
     margin: 0 0 8px 0;
     font-size: 14px;
-    color: #5f5f73;
+    color: #4a4a5e;
 }
 
 .soft-list .proof {
