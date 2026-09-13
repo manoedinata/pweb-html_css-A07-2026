@@ -8,6 +8,12 @@
     z-index: 10;
 }
 
+/* Font navbar dikunci supaya tidak ikut berubah oleh reset * di CSS tiap halaman */
+.nav-inner,
+.nav-inner * {
+    font-family: Arial, sans-serif;
+}
+
 .nav-inner {
     width: 90%;
     max-width: 1000px;
@@ -48,8 +54,13 @@
 
 .nav-link {
     font-size: 15px;
-    color: #828297;
+    color: #5f5f73;
     text-decoration: none;
+    /* Tinggi minimal 44px supaya nyaman ditekan dengan jari di layar sentuh */
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 6px;
 }
 
 /* Pseudo-class :hover -> warna link berubah saat kursor diarahkan */
@@ -60,19 +71,6 @@
 .nav-link.active {
     color: #6b4ce6;
     font-weight: bold;
-}
-
-.nav-cta {
-    background-color: #ff9b24;
-    color: #ffffff;
-    font-size: 15px;
-    text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 30px;
-}
-
-.nav-cta:hover {
-    background-color: #6b4ce6;
 }
 
 /* Logo di dalam page-header dibuat lebih besar sebagai aksen judul */
@@ -88,10 +86,21 @@
         justify-content: center;
     }
 
+    /* Menu digeser mendatar, bukan dipatahkan ke baris baru */
     .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
         gap: 18px;
+        overflow-x: auto;
+        /* Beri ruang vertikal supaya outline fokus tidak terpotong scroll container */
+        padding: 4px 0;
+        scroll-padding-inline: 6px;
+    }
+
+    .nav-link {
+        flex-shrink: 0;
+        white-space: nowrap;
     }
 }
 
@@ -99,9 +108,10 @@
     .nav-link {
         font-size: 14px;
     }
+}
 
-    .nav-cta {
-        padding: 8px 18px;
-        font-size: 14px;
-    }
+/* Penanda fokus keyboard, dipakai bersama di semua halaman */
+:focus-visible {
+    outline: 3px solid #6b4ce6;
+    outline-offset: 2px;
 }

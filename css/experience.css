@@ -1,10 +1,10 @@
 :root {
   --primary-orange: #ff9b24;
   --primary-purple: #6b4ce6;
-  --accent-blue: #5352ed;
   --text-dark: #2b2b43;
-  --text-gray: #828297;
-  --bg-light-blue: #e6f0ff;
+  --text-gray: #5f5f73;
+  --orange-text: #8f4c00;
+  --bg-ground: #ede8ff;
   --bg-card: #ffffff;
 }
 
@@ -16,7 +16,7 @@
 }
 
 body {
-  background-color: var(--bg-light-blue);
+  background-color: var(--bg-ground);
   color: var(--text-dark);
 }
 
@@ -37,14 +37,16 @@ body {
   margin-bottom: 50px;
 }
 
-.section-title h2 {
+.section-title h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 
+  /* Warna solid dulu sebagai cadangan kalau background-clip tidak didukung */
+  color: var(--primary-purple);
   background: linear-gradient(
     to right,
     var(--primary-purple),
-    var(--primary-orange)
+    var(--orange-text)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -116,7 +118,7 @@ body {
 }
 
 .exp-date {
-  color: var(--primary-orange);
+  color: var(--orange-text);
   font-weight: 600;
   font-size: 0.9rem;
 }
@@ -153,7 +155,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent-blue);
+  color: var(--primary-purple);
   font-size: 1.2rem;
   font-weight: bold;
 }
