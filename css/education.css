@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2b43;
+    background-color: #e6f0ff;
+    line-height: 1.5;
+}
+
+.page {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0 80px;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    color: #6b4ce6;
+    margin: 0 0 6px 0;
+}
+
+.page-header p {
+    font-size: 15px;
+    color: #828297;
+    margin: 0;
+}
+
+h2.section-title {
+    font-size: 22px;
+    color: #2b2b43;
+    border-left: 5px solid #6b4ce6;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* ringkasan singkat di atas riwayat */
+.edu-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.summary-box {
+    background-color: #ffffff;
+    border: 1px solid #d9d9e3;
+    padding: 16px;
+    text-align: center;
+}
+
+.summary-box:hover {
+    border-color: #6b4ce6;
+}
+
+.summary-num {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #6b4ce6;
+}
+
+.summary-label {
+    margin: 0;
+    font-size: 13px;
+    color: #828297;
+}
+
+/* satu baris riwayat: kolom tahun, kolom penanda, kolom isi */
+.edu-item {
+    display: grid;
+    grid-template-columns: 150px 30px 1fr;
+    gap: 16px;
+}
+
+.edu-side {
+    text-align: right;
+    padding-top: 16px;
+}
+
+.edu-year {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: #6b4ce6;
+}
+
+.edu-place {
+    margin: 0;
+    font-size: 12px;
+    color: #828297;
+}
+
+/* Position relative -> jadi acuan titik dan garis penghubung */
+.edu-marker {
+    position: relative;
+}
+
+.edu-dot {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #cb6ce6;
+    border: 3px solid #e6f0ff;
+    box-sizing: border-box;
+}
+
+.edu-bar {
+    position: absolute;
+    top: 36px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    width: 2px;
+    background-color: #d9d9e3;
+}
+
+/* Pseudo-class :last-child -> garis penghubung pada item terakhir dihilangkan */
+.edu-item:last-child .edu-bar {
+    display: none;
+}
+
+.edu-body {
+    background-color: #ffffff;
+    border: 1px solid #d9d9e3;
+    padding: 18px;
+    margin-bottom: 24px;
+}
+
+.edu-body:hover {
+    border-color: #6b4ce6;
+}
+
+.edu-level {
+    display: inline-block;
+    background-color: #6b4ce6;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+}
+
+.edu-school {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+}
+
+.edu-major {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #ff9b24;
+}
+
+.edu-desc {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #828297;
+}
+
+.edu-body ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 14px;
+    color: #828297;
+}
+
+.edu-body li {
+    margin-bottom: 6px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .edu-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .edu-side {
+        text-align: left;
+        padding-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .edu-marker {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .edu-school {
+        font-size: 16px;
+    }
+}
