@@ -73,11 +73,15 @@ body {
     height: 200px;
     background-color: #e1daff;
     border: 1px dashed #828297;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .achv-photo img {
+    display: block;
     width: 100%;
-    height: 200px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .achv-content {

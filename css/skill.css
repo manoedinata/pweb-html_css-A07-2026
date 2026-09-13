@@ -121,11 +121,17 @@ section {
     height: 100px;
     background-color: #e6f0ff;
     border: 1px dashed #828297;
+    box-sizing: border-box;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-box img {
-    width: 100px;
-    height: 100px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .level-track {
