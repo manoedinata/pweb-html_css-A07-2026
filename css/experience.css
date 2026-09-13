@@ -252,3 +252,69 @@ body {
 .exp-tasks li:last-child {
   margin-bottom: 0;
 }
+
+/* Toggle detail. Di desktop isi selalu tampil, kontrolnya disembunyikan total. */
+.exp-toggle,
+.exp-toggle-label {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  /* Checkbox disembunyikan secara visual, bukan display:none, agar tetap bisa di-Tab */
+  .exp-toggle {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .exp-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 44px;
+    margin-top: 16px;
+    padding: 0 18px;
+    border: 1px solid var(--primary-purple);
+    border-radius: 22px;
+    color: var(--primary-purple);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Panah menandai status buka/tutup, bukan hiasan */
+  .exp-toggle-label::after {
+    content: "\25be";
+    margin-left: 8px;
+  }
+
+  .exp-toggle:checked ~ .exp-toggle-label::after {
+    content: "\25b4";
+  }
+
+  .exp-toggle-label:hover {
+    background-color: var(--primary-purple);
+    color: #ffffff;
+  }
+
+  /* Fokus keyboard harus terlihat walau checkbox-nya disembunyikan */
+  .exp-toggle:focus-visible ~ .exp-toggle-label {
+    outline: 3px solid var(--primary-purple);
+    outline-offset: 2px;
+  }
+
+  .exp-desc-box {
+    display: none;
+  }
+
+  .exp-toggle:checked ~ .exp-desc-box {
+    display: block;
+  }
+}
